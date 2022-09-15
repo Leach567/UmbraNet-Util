@@ -30,7 +30,7 @@ COPY _transfer/ /
 
 # Setup all the required python modules
 WORKDIR /_reqs
-RUN pip install -r umbra_nn_python_modules.txt
+RUN pip install -r umbra_nn_python_modules_noVers.txt
 
 WORKDIR /apps
 #CMD [ "/_boot/nvidia_setup.bash" ]

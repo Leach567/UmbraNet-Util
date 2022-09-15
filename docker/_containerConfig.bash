@@ -2,10 +2,10 @@
 
 . ./_umbraNetConfig.bash
 
-pushd ./_Projects/UmbraCC
-. ./_umbraCC_Config.bash
-popd
+#pushd ./_Projects/UmbraCC
+#. ./_umbraCC_Config.bash
+#popd
 
-pushd ./Models/Umbra_Cpp
-. ./config.bash
-popd
+#pushd ./Models/Umbra_Cpp
+#. ./config.bash
+#popd
