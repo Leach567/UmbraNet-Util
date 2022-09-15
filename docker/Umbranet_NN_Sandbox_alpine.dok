@@ -1,0 +1,26 @@
+FROM alpine
+
+# Update repositories
+RUN apk update && apk upgrade
+
+# add Common tools
+RUN apk add vim unzip
+
+# Get python up and running
+RUN apk add python3 py-pip
+RUN ln -s /bin/python3 /bin/python
+
+# Setup Git
+RUN apk add git
+RUN apk add git-lfs
+
+# Setup special tools
+RUN apk add mpg123
+
+WORKDIR /_reqs
+COPY _transfer/umbra_nn_python_modules* /_reqs
+COPY _transfer/.vimrc ~
+RUN pip install -r umbra_nn_python_modules_noVers.txt
+
+WORKDIR /apps
+#CMD [ "/apps/_containerConfig.bash" ]
