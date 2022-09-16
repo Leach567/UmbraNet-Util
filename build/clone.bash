@@ -15,20 +15,29 @@ then
 fi
 echo "Cloning from $_sourceDir to $_destDir"
 #Soft-link all the flat files
-find $_sourceDir -mindepth 1 -type f | xargs -I% ln -fs % $_destDir
+#Using min and max depth args to confine it to the current directory
+find $_sourceDir -mindepth 1 -maxdepth 1 -type f -not -wholename "*.git*" | xargs -I% ln -fs % $_destDir
 #echo $?
 
-#Copy only the folder names
-source_dirs=`find $_sourceDir -mindepth 1 -type d`
-echo $source_dirs | tr ' ' '\n' | \
-xargs -I% basename % | \
-xargs -I% mkdir -p $_destDir/%
+#Gather a list of all child folders on the current level only
+source_dirs=`find $_sourceDir -mindepth 1 -maxdepth 1 -type d -not -wholename '*.git*'`
+
+#Prep the child directories, create their
+#mirrors in the destination directory
+for _dir in $source_dirs
+do
+    _base=`basename $_dir`
+    echo -e "\tNew folder basename: $_destDir/$_base"
+    mkdir -p $_destDir/$_base
+done
 
 #Run the script again recursively
 #on all child directories
 #echo $source_dirs | tr ' ' '\n' | \
 #xargs -I% readlink -f % | \
 #xargs -I% echo $BASH_SOURCE % $_destDir/`basename %` #| bash
+
+echo -e "\n"
 for _src in $source_dirs
 do
     #echo $_src
