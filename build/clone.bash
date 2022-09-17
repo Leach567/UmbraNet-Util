@@ -16,8 +16,13 @@ fi
 echo "Cloning from $_sourceDir to $_destDir"
 #Soft-link all the flat files
 #Using min and max depth args to confine it to the current directory
-find $_sourceDir -mindepth 1 -maxdepth 1 -type f -not -wholename "*.git*" | xargs -I% ln -fs % $_destDir
-#echo $?
+_files=`find $_sourceDir -mindepth 1 -maxdepth 1 -type f -not -wholename "*.git*"`
+_fileCount=`echo $_files | tr ' ' '\n' | wc -l`
+for _file in $_files
+do
+    ln -fs $_file $_destDir
+done
+echo -e "\tLinked $_fileCount files."
 
 #Gather a list of all child folders on the current level only
 source_dirs=`find $_sourceDir -mindepth 1 -maxdepth 1 -type d -not -wholename '*.git*'`

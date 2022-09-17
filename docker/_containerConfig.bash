@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. ./_umbraNetConfig.bash
+. /umbra_dev/workspace_config.bash
+. /umbra_dev/_umbraNetConfig.bash
 
 #pushd ./_Projects/UmbraCC
 #. ./_umbraCC_Config.bash

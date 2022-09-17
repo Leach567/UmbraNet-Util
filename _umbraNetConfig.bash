@@ -14,7 +14,7 @@
 #Getting the absolute path of this script....
 #you have no idea how much effort this took....
 function umb_rootPath(){
-	echo $(readlink -f ${BASH_SOURCE})
+	echo "/umbra_dev" #$(readlink -f ${BASH_SOURCE})
 }
 
 #Gets the absolute path of whatever script
@@ -28,7 +28,7 @@ function umb_realPath(){
 }
 export -f umb_realPath
 
-_rootPath=$(umb_rootPath) 
+_rootPath=${UMB_ROOT_PATH} 
 #echo "ROOT PATH: $_rootPath"
 
 #Find a file
@@ -163,7 +163,7 @@ function umb_parseArgs(){
 export -f umb_parseArgs
 
 #Setting important script/model locations
-export UMB_NET_ROOT="$( dirname $_rootPath )"
+export UMB_NET_ROOT="/umbra_dev" #"$( dirname $_rootPath )"
 export UMB_MODEL_ROOT="${UMB_NET_ROOT}/Models"
 export UMB_UTIL_ROOT="${UMB_NET_ROOT}/NN_Util"
 export UMB_TEST_ROOT="${UMB_NET_ROOT}/Tests"
