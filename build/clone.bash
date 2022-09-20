@@ -20,7 +20,7 @@ _files=`find $_sourceDir -mindepth 1 -maxdepth 1 -type f -not -wholename "*.git*
 _fileCount=`echo $_files | tr ' ' '\n' | wc -l`
 for _file in $_files
 do
-    ln -fs $_file $_destDir
+    ln -fs $_file $_destDir & #Will this eat up all the cpu?
 done
 echo -e "\tLinked $_fileCount files."
 
@@ -33,7 +33,7 @@ for _dir in $source_dirs
 do
     _base=`basename $_dir`
     echo -e "\tNew folder basename: $_destDir/$_base"
-    mkdir -p $_destDir/$_base
+    mkdir -p $_destDir/$_base &
 done
 
 #Run the script again recursively

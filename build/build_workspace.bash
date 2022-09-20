@@ -26,17 +26,8 @@ echo "Linking Umbra_Cpp Dependencies..."
 _modelDepRoot="$UMB_MODEL_CPP_ROOT/dep"
 mkdir -p $_modelDepRoot
 
-pushd $_modelDepRoot > /dev/null
-    _boostTar=`find /_reqs/ -name 'boost_*' | head -n 1`
-    if [ -e "$_boostTar" ]
-    then
-        echo "Auto detected boost_package located at $_boostTar. Installing to $_modelDepRoot..."
-        echo tar -xvzf $_boostTar | bash
-        
-        _baseName=`basename $_boostTar`
-        mv $_baseName Boost
-        #chmod -R u+rwx _modelDepRoot/boost_*
-    fi
-popd > /dev/null
+_modelDepRoot="$UMB_MODEL_CPP_ROOT/dep/Boost"
+mkdir -p $_modelDepRoot
+$UMBRA_BUILD_SCRIPT_ROOT/clone.bash $UMBRA_BOOST_REPO_ROOT $_modelDepRoot
 
 popd > /dev/null
