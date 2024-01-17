@@ -8,6 +8,10 @@ ln -fs $UMBRA_UTIL_REPO_ROOT/_umbraNetConfig.bash $UMBRA_DEV_ROOT
 ln -fs $UMBRA_UTIL_REPO_ROOT/docker/_containerConfig.bash $UMBRA_DEV_ROOT
 ln -fs $UMBRA_UTIL_REPO_ROOT/build/workspace_config.bash $UMBRA_DEV_ROOT
 
+mkdir -p $UMBRA_DEV_ROOT/bin
+ln -fs $UMBRA_UTIL_REPO_ROOT/docker/*.bash $UMBRA_DEV_ROOT/bin
+ln -fs $UMBRA_UTIL_REPO_ROOT/build/*.bash $UMBRA_DEV_ROOT/bin
+
 pushd $UMBRA_DEV_ROOT > /dev/null
 
 echo "Linking MODELS"
