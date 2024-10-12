@@ -7,10 +7,10 @@ ENV NVIDIA_DISABLE_REQUIRE=1
 RUN apt -y update --fix-missing && apt-get -y upgrade
 
 # install Common tools
-RUN apt -y install vim unzip sudo dos2unix gdb valgrind
+RUN apt -y install vim unzip sudo dos2unix gdb
 
 # Get python up and running
-RUN apt-get -y install python3 python3-pip
+RUN apt-get -y install python3 python3-pip python3-venv
 RUN ln -s /bin/python3 /bin/python
 
 # Setup Git
@@ -18,8 +18,9 @@ RUN apt-get -y install git
 RUN apt-get -y install git-lfs
 
 # Setup special tools
-RUN apt-get -y install mpg123
-RUN apt-get -y install curl
+RUN apt -y install mpg123
+RUN apt -y install curl
+RUN apt-get -y install valgrind
 
 # Setup the environment and top level directory structure
 COPY _transfer/ /
@@ -30,7 +31,9 @@ COPY _transfer/ /
 
 # Setup all the required python modules
 WORKDIR /_reqs
-RUN pip install -r umbra_nn_python_modules_noVers.txt
+RUN python -m venv /.venv
+#RUN python /.venv/activate
+RUN python -m pip install -r umbra_nn_python_modules_noVers.txt --break-system-packages
 
 WORKDIR /apps
 #CMD [ "/_boot/nvidia_setup.bash" ]

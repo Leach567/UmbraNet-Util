@@ -39,3 +39,5 @@ Werkzeug
 wrapt
 autopep8
 scipy
+imageio
+opencv-python
