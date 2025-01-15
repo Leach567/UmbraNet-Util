@@ -41,3 +41,7 @@ autopep8
 scipy
 imageio
 opencv-python
+scikit-learn
+pandas
+matplotlib
+tkinter

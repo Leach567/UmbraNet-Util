@@ -165,6 +165,7 @@ export -f umb_parseArgs
 #Setting important script/model locations
 export UMB_NET_ROOT="/umbra_dev" #"$( dirname $_rootPath )"
 export UMB_MODEL_ROOT="${UMB_NET_ROOT}/Models"
+export UMB_PYTHON_ROOT="${UMB_MODEL_ROOT}/Umbra_Python"
 export UMB_UTIL_ROOT="${UMB_MODEL_ROOT}/Umbra_Util"
 export UMB_UTIL_TEST_ROOT="${UMB_UTIL_ROOT}/UtilTests"
 export UMB_TEST_ROOT="${UMB_MODEL_ROOT}/Tests"
@@ -178,13 +179,14 @@ export UMB_DATA_ROOT="${UMB_UTIL_ROOT}/TrainingData"
 
 #Add the Utility Directory to the system path
 _path=$PATH:$UMB_NET_ROOT
-#_path=$_path:$UMB_MODEL_ROOT/_lib
+_path=$_path:$UMB_MODEL_ROOT
 _path=$_path:$UMB_UTIL_ROOT/Python
 # Usually, all scripts would be soft-linked into 
 # the bin folder, but as long as my dev folder is
 # a docker volume i can't use links
 #_path=$_path:$UMB_UTIL_ROOT/UmbraWebScraper
-_path=$_path:$UMB_TEST_ROOT
+#_path=$_path:$UMB_TEST_ROOT
+_path=$_path:${UMB_PYTHON_ROOT}
 
 export PATH=$_path
 
