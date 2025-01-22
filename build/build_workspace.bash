@@ -4,8 +4,8 @@ SCRIPT_HOME=`dirname $SCRIPT_NAME`
 
 . ${SCRIPT_HOME}/workspace_config.bash
 
-ln -fs $UMBRA_UTIL_REPO_ROOT/_umbraNetConfig.bash $UMBRA_DEV_ROOT
-ln -fs $UMBRA_UTIL_REPO_ROOT/docker/_containerConfig.bash $UMBRA_DEV_ROOT
+#ln -fs $UMBRA_UTIL_REPO_ROOT/_umbraNetConfig.bash $UMBRA_DEV_ROOT
+#ln -fs $UMBRA_UTIL_REPO_ROOT/docker/_containerConfig.bash $UMBRA_DEV_ROOT
 ln -fs $UMBRA_UTIL_REPO_ROOT/build/workspace_config.bash $UMBRA_DEV_ROOT
 
 mkdir -p $UMBRA_DEV_ROOT/bin
