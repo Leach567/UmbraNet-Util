@@ -24,7 +24,6 @@ then
     exit 1
 fi
 
-
 echo -e "\tLinking Umbra_Cpp Dependencies..."
 . $UMBRA_MODELS_REPO_ROOT/config.bash
 
