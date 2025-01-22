@@ -43,4 +43,7 @@ pushd $UMBRA_DEV_ROOT/Projects > /dev/null/
 $UMBRA_BUILD_SCRIPT_ROOT/clone.bash $UMBRA_PROJECTS_REPO_ROOT $_projectRoot
 popd > /dev/null
 
+echo "Linking TRAINING_DATA"
+$UMBRA_BUILD_SCRIPT_ROOT/clone.bash $UMBRA_TESTS_REPO_ROOT/TrainingData $UMB_TRAINING_DATA_ROOT
+
 popd > /dev/null
