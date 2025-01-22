@@ -8,9 +8,9 @@ SCRIPT_HOME=`dirname $SCRIPT_NAME`
 #ln -fs $UMBRA_UTIL_REPO_ROOT/docker/_containerConfig.bash $UMBRA_DEV_ROOT
 ln -fs $UMBRA_UTIL_REPO_ROOT/build/workspace_config.bash $UMBRA_DEV_ROOT
 
-mkdir -p $UMBRA_DEV_ROOT/Workspace_Bin
-ln -fs $UMBRA_UTIL_REPO_ROOT/docker/*.bash $UMBRA_DEV_ROOT/Workspace_Bin
-ln -fs $UMBRA_UTIL_REPO_ROOT/build/*.bash $UMBRA_DEV_ROOT/Workspace_Bin
+mkdir -p $UMBRA_WORKSPACE_BIN
+ln -fs $UMBRA_UTIL_REPO_ROOT/docker/*.bash $UMBRA_WORKSPACE_BIN
+ln -fs $UMBRA_UTIL_REPO_ROOT/build/*.bash $UMBRA_WORKSPACE_BIN
 
 pushd $UMBRA_DEV_ROOT > /dev/null
 
