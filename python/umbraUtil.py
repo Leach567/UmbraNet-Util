@@ -38,8 +38,6 @@ def debugOn():
 
 # Logging Utility suite for the python side of the UmbraCC System.
 # Will do my best to leverage as much of the bash side as possible
-
-
 def dLog(_msg):
 
     if not isinstance(_msg, str):
@@ -48,15 +46,7 @@ def dLog(_msg):
     # Retrive the UMB_DEBUG envvar, that variable controls
     # All debugging on the Bash Side, so it should control
     # python debugging too
-    _debugMode = False
-    try:
-        if os.environ['UMB_DEBUG'] == 'true':
-            _debugMode = True
-        else:
-            _debugMode = False
-    except BaseException:
-        #	print( 'Unable to access UMB_DEBUG envvar. UmbraNet python debugging will remain disabled.' )
-        return
+    _debugMode = debugOn()
 
     # It will be useful to separate differrent sections of output will indentation.
     # Instead of having to pass it into every function call, setting an envvar at the start
