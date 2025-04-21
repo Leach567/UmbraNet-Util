@@ -167,7 +167,7 @@ export UMB_NET_ROOT="/umbra_dev" #"$( dirname $_rootPath )"
 export UMB_MODEL_ROOT="${UMB_NET_ROOT}/Models"
 export UMB_PYTHON_ROOT="${UMB_MODEL_ROOT}/Umbra_Python"
 export UMB_UTIL_ROOT="${UMB_MODEL_ROOT}/Umbra_Util"
-export UMB_UTIL_TEST_ROOT="${UMB_UTIL_ROOT}/UtilTests"
+export UMB_UTIL_TEST_ROOT="${UMB_UTIL_ROOT}/Python/UtilTests"
 export UMB_TEST_ROOT="${UMB_MODEL_ROOT}/Tests"
 export UMB_DATA_ROOT="${UMB_UTIL_ROOT}/TrainingData"
 
