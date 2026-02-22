@@ -18,14 +18,14 @@ echo "Linking MODELS"
 mkdir -p Models
 $UMBRA_BUILD_SCRIPT_ROOT/clone.bash $UMBRA_MODELS_REPO_ROOT $PWD/Models
 
-if [ ! -e $UMBRA_MODELS_REPO_ROOT/config.bash ]
+if [ ! -e $UMBRA_MODELS_REPO_ROOT/Umbra_Cpp/config.bash ]
 then
     echo "Cannot find Model config script. Terminating."
     exit 1
 fi
 
 echo -e "\tLinking Umbra_Cpp Dependencies..."
-. $UMBRA_MODELS_REPO_ROOT/config.bash
+. $UMBRA_MODELS_REPO_ROOT/Umbra_Cpp/config.bash
 
 _modelDepRoot="$UMB_MODEL_CPP_ROOT/dep"
 mkdir -p $_modelDepRoot
@@ -42,7 +42,7 @@ pushd $UMBRA_DEV_ROOT/Projects > /dev/null/
 $UMBRA_BUILD_SCRIPT_ROOT/clone.bash $UMBRA_PROJECTS_REPO_ROOT $_projectRoot
 popd > /dev/null
 
-echo "Linking TRAINING_DATA"
-$UMBRA_BUILD_SCRIPT_ROOT/clone.bash $UMBRA_TESTS_REPO_ROOT/TrainingData $UMB_TRAINING_DATA_ROOT
+#echo "Linking TRAINING_DATA"
+#$UMBRA_BUILD_SCRIPT_ROOT/clone.bash $UMBRA_TESTS_REPO_ROOT/TrainingData $UMB_TRAINING_DATA_ROOT
 
 popd > /dev/null

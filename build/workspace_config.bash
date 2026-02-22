@@ -1,5 +1,5 @@
-export UMBRA_REPO_ROOT="/repos"
-export UMBRA_DEV_ROOT="/umbra_dev"
+export UMBRA_REPO_ROOT="/Repos"
+export UMBRA_DEV_ROOT="/Umbra_Dev"
 
 export UMBRA_UTIL_REPO_ROOT="${UMBRA_REPO_ROOT}/UmbraNet-Util"
 export UMBRA_BOOST_REPO_ROOT="${UMBRA_REPO_ROOT}/Umbra-Boost"
