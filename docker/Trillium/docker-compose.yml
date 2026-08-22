@@ -6,6 +6,6 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./data:/home/Trillium_Srv/trilium-data
+      - ~/trillium_data:/home/Trillium_Srv/trilium-data
     environment:
       - TRILIUM_DATA_DIR=/home/Trillium_Srv/trilium-data
