@@ -1,0 +1,17 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    user: "1001:0" # Replace with your host UID:GID if needed
+    restart: unless-stopped
+    ports:
+      - "8096:8096"
+      - "7359:7359/udp"
+    volumes:
+      - ~/jellyfin_data/config:/config
+      - ~/jellyfin_data/cache:/cache
+      - ~/jellyfin_data/ro:/media:ro
+      - /media/umbra/8b7e9efd-2fdb-426c-acf2-e10be9041195/jellyfin_data/ro:/storage:ro
+    environment:
+      - TZ=America/New_York # Set your timezone   
+      - JELLYFIN_ROOT=~/jellyfin_data
