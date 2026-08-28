@@ -15,3 +15,8 @@ services:
     environment:
       - TZ=America/New_York # Set your timezone   
       - JELLYFIN_ROOT=~/jellyfin_data
+    labels:
+      - homepage.group=Entertainment
+      - homepage.name=JellyFin Media Server
+      - homepage.icon=jellyfin.png
+      - homepage.href=http://10.10.50.3:8096

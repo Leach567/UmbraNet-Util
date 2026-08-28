@@ -24,7 +24,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     labels:
-      - "homepage.group=Documentation"
-      - "homepage.name=Trilium Notes Server"
+      - homepage.group=Documentation
+      - homepage.name=Trilium Notes Server
       - homepage.icon=trilium.png
       - homepage.href=http://10.10.50.3:8080

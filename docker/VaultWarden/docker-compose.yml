@@ -9,4 +9,9 @@ services:
       - "8081:80"
     environment:
       - DOMAIN=https://localhost:8081
-      - SIGNUPS_ALLOWED=true   
+      - SIGNUPS_ALLOWED=true  
+    labels:
+      - homepage.group=Administration
+      - homepage.name=VaultWarden Password Manager
+      - homepage.icon=vaultwarden.png
+      - homepage.href=http://10.10.50.3:8081 
