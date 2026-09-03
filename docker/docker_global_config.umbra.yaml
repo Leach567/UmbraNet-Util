@@ -1,0 +1,5 @@
+networks:
+  umbra_app_net:
+    driver: bridge
+    name: umbra_app_net
+

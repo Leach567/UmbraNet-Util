@@ -1,0 +1,28 @@
+include:
+  - path: ../docker_global_config.umbra.yaml
+
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: dozzle
+    ports:
+      - "8888:8080"
+    volumes:
+      # Mount the Docker socket read-only to let Dozzle read container streams safely
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      # Optional: Set the level of logs Dozzle itself generates
+      # info
+      # debug
+      # trace
+      - DOZZLE_LEVEL=debug
+      # Optional: Require a login to view your container logs
+      - DOZZLE_USERNAME=admin
+      - DOZZLE_PASSWORD=_eventHorizon
+    restart: unless-stopped
+    labels:
+      - homepage.group=Administration
+      - homepage.name=Dozzle Logs Server
+      - homepage.icon=dozzle.png
+      - homepage.href=http://10.10.50.3:8888
+
