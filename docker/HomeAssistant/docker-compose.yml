@@ -1,8 +1,6 @@
 include:
   - path: ../docker_global_config.umbra.yaml
 services:
-  dozzle:
-    external: true
   homeassistant:
     container_name: homeassistant
     image: ghcr.io/home-assistant/home-assistant:stable
@@ -14,6 +12,6 @@ services:
     network_mode: host
     labels:
       - homepage.group=Automation
-      - homepage.name=PiHole
-      - homepage.icon=home.png
-      - homepage.href=http:\\10.10.50.3:8123
+      - homepage.name=HomeAssistant
+      - homepage.icon=home-assistant.png
+      - homepage.href=http:\\assistant.umbra.com

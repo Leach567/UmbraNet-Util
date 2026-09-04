@@ -1,3 +1,5 @@
+include:
+  - path: ../docker_global_config.umbra.yaml
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
   pihole:
@@ -5,8 +7,8 @@ services:
     image: pihole/pihole:latest
     ports:
       # DNS Ports
-      - "544:53/tcp"
-      - "544:53/udp"
+      - "53:53/tcp"
+      - "53:53/udp"
       # Default HTTP Port
       - "8082:80/tcp"
       # Default HTTPs Port. FTL will generate a self-signed certificate
@@ -38,7 +40,7 @@ services:
       - SYS_NICE
     restart: unless-stopped
     labels:
-      - homepage.group=Administration
+      - homepage.group=Network
       - homepage.name=PiHole
       - homepage.icon=pi-hole.png
-      - homepage.href=http://10.10.50.3:8082/
+      - homepage.href=http:\\dns.umbra.com

@@ -16,4 +16,4 @@ services:
       - homepage.group=Network
       - homepage.name=Nginx Reverse Proxy Manager
       - homepage.icon=nginx-proxy-manager.png
-      - homepage.href=http:\\proxy.umbra.com
+      - homepage.href=http://proxy.umbra.com

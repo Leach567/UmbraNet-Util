@@ -15,4 +15,4 @@ services:
       - homepage.group=Administration
       - homepage.name=Uptime Kuma
       - homepage.icon=uptime-kuma.png
-      - homepage.href=http://10.10.50.3:3001
+      - homepage.href=http://uptime.umbra.com

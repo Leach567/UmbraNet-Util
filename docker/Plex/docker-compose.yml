@@ -1,0 +1,23 @@
+services:
+  plex:
+    container_name: plex
+    image: plexinc/pms-docker:latest
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PUID=1001        # Replace with your actual user UID
+      - PGID=0        # Replace with your actual group GID
+      - TZ=America/New_York
+      - PLEX_CLAIM=claim-6KKvSjDmMwkxi-TxaqVe # Optional but highly recommended
+    volumes:
+      - ~/plex/config:/config
+      - ~/plex/transcode:/transcode
+      - /media/umbra/8b7e9efd-2fdb-426c-acf2-e10be9041195/jellyfin_data/ro/WorkshopStorage_Movies:/movies:ro       # Update with your media directory
+      - /media/umbra/8b7e9efd-2fdb-426c-acf2-e10be9041195/jellyfin_data/ro/WorkshopStorage_Shows:/tvshows:ro     # Update with your media directory
+    devices:
+      - /dev/dri:/dev/dri                  # Optional: Enables Intel Hardware Transcoding
+    labels:
+      - homepage.group=Entertainment
+      - homepage.name=Plex
+      - homepage.icon=plex.png
+      - homepage.href=http://plex.umbra.com #port: 32400

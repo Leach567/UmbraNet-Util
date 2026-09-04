@@ -1,0 +1,21 @@
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=1001
+      - PGID=0
+      - TZ=US/Eastern
+      - PASSWORD=_eventHorizon # Password to access the browser UI (Leave blank for no password)
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - ~/vscconfig:/config
+      - /repos:/config/workspace # Mount your local project files here
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+    labels:
+      - homepage.group=Development
+      - homepage.name=Visual Studio Code Server
+      - homepage.icon=code-server.png
+      - homepage.href=http://ide.umbra.com

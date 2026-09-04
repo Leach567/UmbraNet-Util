@@ -1,3 +1,5 @@
+include:
+  - path: ../docker_global_config.umbra.yaml
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -9,6 +11,11 @@ services:
       - ~/homepage_config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: "10.10.50.3:3000"  # your IP:port or domain
+      HOMEPAGE_ALLOWED_HOSTS: "10.10.50.3:3000,umbra.com,home.umbra.com"  # your IP:port or domain
       PUID: 1001
-      PGID: 0   
+      PGID: 0  
+    labels:
+      - homepage.group=Administration
+      - homepage.name=Umbra Labworks Dashboard
+      - homepage.icon=homepage.png
+      - homepage.href=http:\\home.umbra.com 
