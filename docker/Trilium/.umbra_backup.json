@@ -2,7 +2,8 @@
 	"data": {
 		"package-name": "trilium",
 		"paths": [
-			"/home/trilium"
+			"/home/trilium",
+			"/home/umbra/trilium-data"
 		]
 	}
 }

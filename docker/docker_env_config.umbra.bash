@@ -44,7 +44,7 @@ SERVICE_INIT_ORDER=(
 "Dozzle"
 "UptimeKuma"
 "HomePage"
-"Trillium"
+"Trilium"
 "JellyFin"
 "Plex"
 "VSCode"

@@ -1,5 +1,5 @@
-. ./docker_env_config.umbra.bash
-. ../umbraScriptUtil.config.bash
+. /repos/UmbraNet-Util/docker/docker_env_config.umbra.bash
+. /repos/UmbraNet-Util/umbraScriptUtil.config.bash
 
 UMBRA_BACKUP_DIR="/mnt/WorkshopShare/Umbra-Blade_Backups/Service_Backups"
 UMBRA_BACKUP_FILENAME=".umbra_backup.json"
@@ -17,7 +17,7 @@ fi
 # Begin going through the service dirs and search for the required files
 for dir in ${SERVICE_INIT_ORDER[@]}; do
 	Print "Preparing to backup ${BOLD}${UNDERLINE}${BRIGHT_GREEN}${dir}${RESET}..."
-	pushd ${SERVICE_REPO_ROOT}/${dir}
+	pushd ${SERVICE_REPO_ROOT}/${dir} > /dev/null
 
 	# If no backup json file is found, generate a new one
 	if [[ ! -f "./${UMBRA_BACKUP_FILENAME}" ]]; then
@@ -44,9 +44,11 @@ for dir in ${SERVICE_INIT_ORDER[@]}; do
 		
 		# TODO: Integrity Checking
 
-		backup_command="tar -xvzf ${UMBRA_BACKUP_DIR}/${dir}/${pkg_name}__${DATE_STAMP}.tgz ${paths}"
-		Print "mkdir -p ${UMBRA_BACKUP_DIR}/${dir}"
-		Print "${backup_command}"
+		backup_command="tar -cvzf ${UMBRA_BACKUP_DIR}/${dir}/${pkg_name}__${DATE_STAMP}.tgz ${paths}"
+		Print "sudo mkdir -p ${UMBRA_BACKUP_DIR}/${dir}"
+		sudo mkdir -p ${UMBRA_BACKUP_DIR}/${dir}
+		Print "sudo ${backup_command}"
+		sudo ${backup_command}
 	fi
-	popd
+	popd > /dev/null
 done
