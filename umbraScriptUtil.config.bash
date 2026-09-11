@@ -1,4 +1,7 @@
 #!/bin/bash
+
+export TIME_12H="`date '+%I:%M %p'`"
+export TIME_ZULU="`date -u +%Y-%m-%dT%H:%M:%SZ`"
 export DATE_STAMP="`date +%Y%m%d`"
 export DATE_STAMP_MINS="`date +%Y%m%d_%H%M`"
 #============================[ Colors & Formatting ]======================================
@@ -89,12 +92,18 @@ function PrintDbg(){
 	printLog
 }
 export -f PrintDbg
-function PrintCaller(){
+function PrintCallerFn(){
 	LOG_LABEL=""
 	LOG_MESSAGE="[${YELLOW}${FUNCNAME[1]}${RESET} as ${MAGENTA}${USER}${RESET}]"
 	printLog
 }
-export -f PrintCaller
+export -f PrintCallerFn
+function PrintCallerScript(){
+	LOG_LABEL=""
+	LOG_MESSAGE="[${YELLOW}${BASH_SOURCE[1]}${RESET} as ${MAGENTA}${USER}${RESET}]"
+	printLog
+}
+export -f PrintCallerScript
 function PrintErr(){
 	LOG_LABEL="${BRIGHT_RED}Error${RESET}"
 	LOG_MESSAGE="[`basename ${BASH_SOURCE[1]}` at line ${BASH_LINENO[0]}]::${1}"

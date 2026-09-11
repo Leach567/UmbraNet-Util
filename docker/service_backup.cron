@@ -1,0 +1,5 @@
+#!/bin/bash
+source /repos/UmbraNet-Util/umbraScriptUtil.config.bash
+source /repos/UmbraNet-Util/docker/docker_env_config.umbra.bash
+${SERVICE_REPO_ROOT}/run_service_backups.bash > /home/umbra/Umbra-Blade_Backups/logs/${DATE_STAMP}.log 2>&1
+chmod 777 /home/umbra/Umbra-Blade_Backups/logs/${DATE_STAMP}.log
