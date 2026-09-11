@@ -1,0 +1,10 @@
+{
+	"data": {
+		"package-name": "tar-package-name",
+		"paths": [
+			"path/to/data",
+			"path/to/data"
+		]
+	}
+}
+		

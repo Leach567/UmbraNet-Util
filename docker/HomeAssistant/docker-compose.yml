@@ -14,4 +14,4 @@ services:
       - homepage.group=Automation
       - homepage.name=HomeAssistant
       - homepage.icon=home-assistant.png
-      - homepage.href=http:\\assistant.umbra.com
+      - homepage.href=http://assistant.umbra.com

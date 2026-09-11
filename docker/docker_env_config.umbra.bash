@@ -1,4 +1,5 @@
 #!/bin/bash
+../umbraScriptUtil.config.bash
 SERVICE_REPO_ROOT="/repos/UmbraNet-Util/docker"
 function force_reset_docker(){
 	sudo systemctl stop docker

@@ -43,4 +43,4 @@ services:
       - homepage.group=Network
       - homepage.name=PiHole
       - homepage.icon=pi-hole.png
-      - homepage.href=http:\\dns.umbra.com
+      - homepage.href=http://dns.umbra.com/admin

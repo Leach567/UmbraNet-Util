@@ -7,16 +7,16 @@ services:
     restart: unless-stopped
     volumes:
       - ~/vw-data:/data
-      - /etc/ssl:/ssl
+      - /etc/ssl:/ssl:ro
     ports:
-      - "127.0.0.1:8081:80"
+      - "8081:80"
     environment:
-      - ROCKET_TLS:'{certs="/ssl/certs/umbra_ca-chain.cert.pem",key="/ssl/private/umbra-blade.key.pem"}'
-      - ROCKET_PORT=444
-      - DOMAIN=localhost:8081
+      - ROCKET_TLS:'{certs="/ssl/certs/umbra.com.cert.pem",key="/ssl/private/umbra.com.key.pem"}'
+      - ROCKET_PORT=80
+      - DOMAIN=http://vault.umbra.com:8081
       - SIGNUPS_ALLOWED=true  
     labels:
       - homepage.group=Administration
       - homepage.name=VaultWarden Password Manager
       - homepage.icon=vaultwarden.png
-      - homepage.href=vault.umbra.com
+      - homepage.href=http://vault.umbra.com
