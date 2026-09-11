@@ -1,10 +1,8 @@
 {
 	"data": {
-		"package-name": "tar-package-name",
+		"package-name": "plex",
 		"paths": [
-			"path/to/data",
-			"path/to/data"
+			"/home/umbra/plex/"
 		]
 	}
 }
-		

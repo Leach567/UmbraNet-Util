@@ -1,9 +1,8 @@
 {
 	"data": {
-		"package-name": "tar-package-name",
+		"package-name": "vaultwarden",
 		"paths": [
-			"path/to/data",
-			"path/to/data"
+			"/home/umbra/vw-data"
 		]
 	}
 }

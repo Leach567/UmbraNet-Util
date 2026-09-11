@@ -1,7 +1,7 @@
 . ./docker_env_config.umbra.bash
 . ../umbraScriptUtil.config.bash
 
-UMBRA_BACKUP_DIR="/home/umbra/UmbraLab_Backups/Service_Backups"
+UMBRA_BACKUP_DIR="/mnt/WorkshopShare/Umbra-Blade_Backups/Service_Backups"
 UMBRA_BACKUP_FILENAME=".umbra_backup.json"
 
 PrintCaller
