@@ -1,0 +1,19 @@
+services:
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    user: "1001:0"
+    restart: unless-stopped
+    ports:
+      - "3002:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=umbra@gmail.com
+      - GF_SECURITY_ADMIN_PASSWORD=_eventHorizon
+    volumes:
+      - ~/grafana:/var/lib/grafana
+    labels:
+      - homepage.group=Administration
+      - homepage.name=Grafana Server Metrics
+      - homepage.icon=grafana.png
+      - homepage.href=http://metrics.umbra.com
+

@@ -1,0 +1,18 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: always
+    ports:
+      - "9443:9443"
+      - "7000:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    labels:
+        - homepage.group=Administration
+        - homepage.name=Portainer
+        - homepage.icon=portainer.png
+        - homepage.href=http://portainer.umbra.com
+volumes:
+  portainer_data:

@@ -1,0 +1,35 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    volumes:
+      - ~/ollama-data:/root/.ollama
+    # Highlight-start
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # Highlight-end
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    ports:
+      - "3003:8080" # Note: Changed host port to 3000 to match your UI preferences
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - ~/open-webui-data:/app/backend/data
+    depends_on:
+      - ollama
+    labels:
+      - homepage.group=Development
+      - homepage.name=AI Web UI
+      - homepage.icon=open-webui.png
+      - homepage.href=http://ai.umbra.com
+
