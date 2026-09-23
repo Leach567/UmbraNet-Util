@@ -2,7 +2,7 @@
 	"data": {
 		"package-name": "portainer",
 		"paths": [
-			"/home/umbra/portainer/"
+			"/home/umbra/portainer_data/"
 		]
 	}
 }

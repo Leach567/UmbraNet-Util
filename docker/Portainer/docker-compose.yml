@@ -5,10 +5,10 @@ services:
     restart: always
     ports:
       - "9443:9443"
-      - "7000:8000"
+      - "8000:8000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+      - portainer_data:~/portainer_data
     labels:
         - homepage.group=Administration
         - homepage.name=Portainer
