@@ -10,9 +10,8 @@ services:
       resources:
         reservations:
           devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+            - "/dev/kfd:/dev/kfd"
+            - "/dev/dri:/dev/dri"
     # Highlight-end
 
   open-webui:
