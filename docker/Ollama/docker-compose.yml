@@ -6,12 +6,9 @@ services:
     volumes:
       - ~/ollama-data:/root/.ollama
     # Highlight-start
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - "/dev/kfd:/dev/kfd"
-            - "/dev/dri:/dev/dri"
+    devices:
+      - "/dev/kfd:/dev/kfd"
+      - "/dev/dri:/dev/dri"    
     # Highlight-end
 
   open-webui:
