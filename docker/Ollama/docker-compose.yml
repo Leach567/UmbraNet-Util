@@ -2,6 +2,9 @@ services:
   ollama:
     image: ollama/ollama:latest
     container_name: ollama
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     restart: unless-stopped
     volumes:
       - ~/ollama-data:/root/.ollama
