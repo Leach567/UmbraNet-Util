@@ -10,6 +10,7 @@ services:
       - ~/ollama-data:/root/.ollama
     # Highlight-start
     ports:
+      # Exposing port so HomeAssistant can connect
       - "11434:11434"
     devices:
       - "/dev/kfd:/dev/kfd"
