@@ -9,6 +9,8 @@ services:
     volumes:
       - ~/ollama-data:/root/.ollama
     # Highlight-start
+    ports:
+      - "11434:11434"
     devices:
       - "/dev/kfd:/dev/kfd"
       - "/dev/dri:/dev/dri"    
