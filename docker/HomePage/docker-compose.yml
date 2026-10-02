@@ -9,9 +9,9 @@ services:
       - "3000:3000"
     volumes:
       - ~/homepage_config:/app/config
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/:/var/run/:ro
     environment:
-      HOMEPAGE_ALLOWED_HOSTS: "10.10.50.3:3000,umbra.com,home.umbra.com"  # your IP:port or domain
+      HOMEPAGE_ALLOWED_HOSTS: "10.10.50.3:3000,10.10.50.12:3000,umbra.com,home.umbra.com"  # your IP:port or domain
       PUID: 1001
       PGID: 0  
     labels:

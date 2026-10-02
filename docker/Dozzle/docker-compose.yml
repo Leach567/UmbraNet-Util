@@ -9,7 +9,7 @@ services:
       - "8888:8080"
     volumes:
       # Mount the Docker socket read-only to let Dozzle read container streams safely
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/:/var/run/:ro
     environment:
       # Optional: Set the level of logs Dozzle itself generates
       # info
