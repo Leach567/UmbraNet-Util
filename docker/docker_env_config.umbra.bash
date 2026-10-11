@@ -48,7 +48,7 @@ SERVICE_INIT_ORDER=(
 #"Trilium"
 #"JellyFin"
 #"Plex"
-"Ollama"
+"OpenWebUI"
 #"VSCode"
 #"VaultWarden"
 )

@@ -1,9 +1,0 @@
-{
-    "data": {
-        "package-name": "ollama",
-        "paths": [
-            "/home/umbra/ollama-data",
-            "/home/umbra/open-webui-data"
-        ]
-    }
-}
