@@ -70,7 +70,7 @@ services:
     env_file:
       - ./paperless-ai/.env
     volumes:
-      - ./paperless-ai/data:/app/data
+      - ~/paperless-ai/data:/app/data
 
   # paperless-gpt service
   paperless-gpt:
