@@ -84,4 +84,4 @@ services:
     env_file:
       - ./paperless-gpt/.env
     volumes:
-      - ./paperless-gpt/prompts:/app/prompts # Mount the prompts directory
+      - ~/paperless-gpt/prompts:/app/prompts # Mount the prompts directory
