@@ -38,20 +38,19 @@ function restart_umbra_service(){
 export -f restart_umbra_service
 
 SERVICE_INIT_ORDER=( 
-"PiHole"
-"Nginx"
+#"PiHole"
+#"Nginx"
 "Portainer"
 "Dozzle"
 "UptimeKuma"
-"Grafana"
-"HomePage"
-"Trilium"
-"JellyFin"
-"Plex"
-"Ollama"
-"VSCode"
-"HomeAssistant"
-"VaultWarden"
+#"Grafana"
+#"HomePage"
+#"Trilium"
+#"JellyFin"
+#"Plex"
+"OpenWebUI"
+#"VSCode"
+#"VaultWarden"
 )
 declare -a SERVICE_INIT_ORDER
 function start_umbra_services(){
