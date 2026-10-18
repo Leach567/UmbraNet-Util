@@ -49,6 +49,7 @@ SERVICE_INIT_ORDER=(
 #"JellyFin"
 #"Plex"
 "OpenWebUI"
+"Jupyter"
 #"VSCode"
 #"VaultWarden"
 )

@@ -12,6 +12,6 @@ services:
       - ./.env 
     labels:
       - homepage.group=Science/Engineering
-      - homepage.name=Jupyter Notebooks
+      - homepage.name=Jupyter Hub
       - homepage.icon=jupyter.png
       - homepage.href=http://jupyter.umbra.com
