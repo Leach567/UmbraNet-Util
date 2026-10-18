@@ -1,0 +1,17 @@
+services:
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    container_name: jupyter_server
+    restart: always
+    ports:
+      - "9999:8888"
+    volumes:
+      - ~/jupyter_notebooks:/home/jovyan/work
+    environment:
+    env_file: 
+      - ./.env 
+    labels:
+      - homepage.group=Science/Engineering
+      - homepage.name=Jupyter Notebooks
+      - homepage.icon=jupyter.png
+      - homepage.href=http://jupyter.umbra.com
