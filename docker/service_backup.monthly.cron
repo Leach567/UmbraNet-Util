@@ -1,0 +1,21 @@
+#!/bin/bash
+source /repos/UmbraNet-Util/umbraScriptUtil.config.bash
+source /repos/UmbraNet-Util/docker/docker_env_config.umbra.bash
+# Remove all older than 30 days
+find ${SERVICE_BACKUP_ROOT} -type f -mtime +30 | xargs rm
+# Remove all the previous 'latest' backups, we only want the most recent
+# in Cold Storage 
+rm -vf ${SERVICE_BACKUP_COLDSTORAGE_ROOT}/* >> /home/umbra/Umbra-Blade_Backups/logs/monthly_run_${DATE_STAMP}.log
+
+# Deep-copy all the "_latest" backup soft-links into cold storage
+# Set to read-only for all other users
+pushd ${SERVICE_BACKUP_ROOT}
+	latest_dir="../`basename ${SERVICE_BACKUP_ROOT}`.Latest"
+	mkdir -p ${latest_dir} >> /home/umbra/Umbra-Blade_Backups/logs/monthly_run_${DATE_STAMP}.log
+	rm -vf ${latest_dir}/* >> /home/umbra/Umbra-Blade_Backups/logs/monthly_run_${DATE_STAMP}.log
+	cp -vrL */*latest ${latest_dir} >> /home/umbra/Umbra-Blade_Backups/logs/monthly_run_${DATE_STAMP}.log
+	rsync -razv --partial --ignore-existing ${latest_dir} ${SERVICE_BACKUP_COLDSTORAGE_ROOT}/ >> /home/umbra/Umbra-Blade_Backups/logs/monthly_run_${DATE_STAMP}.log
+	chmod 744 ${SERVICE_BACKUP_COLDSTORAGE_ROOT}/*
+popd
+# Set the proper permissions for reading the log
+chmod 744 /home/umbra/Umbra-Blade_Backups/logs/monthly_run_${DATE_STAMP}.log

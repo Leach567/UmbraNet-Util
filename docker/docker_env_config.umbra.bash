@@ -1,6 +1,7 @@
 #!/bin/bash
 SERVICE_REPO_ROOT="/repos/UmbraNet-Util/docker"
 SERVICE_BACKUP_ROOT="/home/umbra/Umbra-Blade_Backups/Service_Backups"
+SERVICE_BACKUP_COLDSTORAGE_ROOT="/mnt/Strawhat_Share/"
 function force_reset_docker(){
 	sudo systemctl stop docker
 	sudo rm -f /var/lib/docker/network/files/local-kv.db
