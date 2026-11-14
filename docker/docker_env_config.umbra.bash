@@ -1,5 +1,6 @@
 #!/bin/bash
 SERVICE_REPO_ROOT="/repos/UmbraNet-Util/docker"
+SERVICE_BACKUP_ROOT="/home/umbra/Umbra-Blade_Backups/Service_Backups"
 function force_reset_docker(){
 	sudo systemctl stop docker
 	sudo rm -f /var/lib/docker/network/files/local-kv.db
@@ -46,9 +47,8 @@ SERVICE_INIT_ORDER=(
 #"Grafana"
 "HomePage"
 "Trilium"
-#"JellyFin"
-#"Plex"
-"VSCode"
+"JellyFin"
+"Plex"
 "VaultWarden"
 )
 declare -a SERVICE_INIT_ORDER
