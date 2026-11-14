@@ -43,14 +43,12 @@ SERVICE_INIT_ORDER=(
 "Portainer"
 "Dozzle"
 "UptimeKuma"
-"Grafana"
+#"Grafana"
 "HomePage"
 "Trilium"
-"JellyFin"
-"Plex"
-"Ollama"
+#"JellyFin"
+#"Plex"
 "VSCode"
-"HomeAssistant"
 "VaultWarden"
 )
 declare -a SERVICE_INIT_ORDER
