@@ -1,4 +1,5 @@
-. ../umbraFormatUtil.bash
+#!/bin/bash
+. `dirname ${BASH_SOURCE[0]}`/../umbraFormatUtil.bash
 export UMBRA_REPO_ROOT="/repos"
 export UMBRA_UTIL_ROOT="${UMBRA_REPO_ROOT}/UmbraNet-Util"
 export UMBRA_DOCKER_ROOT="${UMBRA_UTIL_ROOT}/docker"
@@ -8,7 +9,7 @@ parse_git_branch() {
 }
 
 # Update the Bash prompt (PS1)
-export PS1="${MAGENTA}\u@\h${RESET} \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \$ "
+export PS1="${MAGENTA}\u@\h${RESET} ${GREEN}\w${YELLOW}\$(parse_git_branch)${RESET} \$ "
 
 alias ..="cd ../"
 alias ...="cd ../../"
