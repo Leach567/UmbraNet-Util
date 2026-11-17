@@ -1,16 +1,16 @@
-export UMBRA_UTIL_ROOT="/repos/UmbraNet-Util"
+#!/bin/bash
+. `dirname ${BASH_SOURCE[0]}`/../umbraFormatUtil.bash
+export UMBRA_REPO_ROOT="/repos"
+export UMBRA_UTIL_ROOT="${UMBRA_REPO_ROOT}/UmbraNet-Util"
 export UMBRA_DOCKER_ROOT="${UMBRA_UTIL_ROOT}/docker"
-
 # Function to get the current Git branch
 parse_git_branch() {
      git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # Update the Bash prompt (PS1)
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \$ "
-
+export PS1="${MAGENTA}\u@\h${RESET} ${GREEN}\w${YELLOW}\$(parse_git_branch)${RESET} \$ "
 
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"
-. ${UMBRA_DOCKER_ROOT}/docker_env_config.umbra.bash
