@@ -2,8 +2,18 @@
 SERVICE_REPO_ROOT="/repos/UmbraNet-Util/docker"
 SERVICE_BACKUP_ROOT="/home/umbra/Umbra-Blade_Backups/Service_Backups"
 SERVICE_BACKUP_COLDSTORAGE_ROOT="/mnt/Strawhat_Share/"
+function umbra_service_log(){
+	pushd ${SERVICE_REPO_ROOT}/$1
+	
+	echo "Starting $1"
+	docker compose logs -f
+
+	popd
+}
+export -f umbra_service_log
 function force_reset_docker(){
 	sudo systemctl stop docker
+	sudo systemcle stop docker.sock
 	sudo rm -f /var/lib/docker/network/files/local-kv.db
 	sudo systemctl start docker
 }
@@ -14,6 +24,7 @@ function start_umbra_service(){
 	
 	echo "Starting $1"
 	docker compose up -d
+	#docker compose -u "$(id -u):$(id -g)" up -d
 
 	popd
 }

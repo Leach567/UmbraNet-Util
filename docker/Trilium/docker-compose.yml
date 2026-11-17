@@ -8,8 +8,8 @@ services:
     image: triliumnext/trilium:latest
     # Restart the container unless it was stopped by the user
     restart: unless-stopped
-    environment:
-      - TRILIUM_DATA_DIR=/home/trilium/trilium-data
+    env_file:
+      - ./.env
     ports:
       # By default, Trilium will be available at http://localhost:8080
       # It will also be accessible at http://<host-ip>:8080
