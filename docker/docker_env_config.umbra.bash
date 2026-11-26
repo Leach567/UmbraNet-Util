@@ -10,7 +10,7 @@ else
 fi
 
 function force_free_port(){
-	Print "Force-Freeing port $1..."
+	Print "Force-Freeing port ${BRIGHT_GREEN}$1${RESET}..."
 	sudo kill -9 $(sudo lsof -ti :$1)
 	if [[ $? -ne 0 ]]; then
 		PrintErr "Failed to kill process(s)"
