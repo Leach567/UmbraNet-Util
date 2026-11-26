@@ -2,6 +2,21 @@
 SERVICE_REPO_ROOT="/repos/UmbraNet-Util/docker"
 SERVICE_BACKUP_ROOT="/home/umbra/Umbra-Blade_Backups/Service_Backups"
 SERVICE_BACKUP_COLDSTORAGE_ROOT="/mnt/Strawhat_Share/"
+
+if [[ -f ${UMBRA_UTIL_ROOT}/umbraScriptUtil.config.bash ]]; then
+	. ${UMBRA_UTIL_ROOT}/umbraScriptUtil.config.bash
+else
+	. /home/umbra/repos/UmbraNet-Util/umbraScriptUtil.config.bash
+fi
+
+function force_free_port(){
+	Print "Force-Freeing port $1..."
+	sudo kill -9 $(sudo lsof -ti :$1)
+	if [[ $? -ne 0 ]]; then
+		PrintErr "Failed to kill process(s)"
+	fi
+}
+export -f force_free_port
 function umbra_service_log(){
 	pushd ${SERVICE_REPO_ROOT}/$1
 	
@@ -12,10 +27,15 @@ function umbra_service_log(){
 }
 export -f umbra_service_log
 function force_reset_docker(){
+	Print "Stopping Docker..."
 	sudo systemctl stop docker
+	Print "Stopping Docker.sock..."
 	sudo systemcle stop docker.sock
+	Print "Removing local-kv.db..."
 	sudo rm -f /var/lib/docker/network/files/local-kv.db
+	Print "Restarting Docker..."
 	sudo systemctl start docker
+	Print "All done."
 }
 export -f force_reset_docker
 
